@@ -9,8 +9,19 @@ import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 import { Menu } from "@material-ui/icons";
+import { makeStyles } from "@material-ui/core/styles";
 
-export default function SwipeableTemporaryDrawer() {
+const useStyles = makeStyles({
+  list: {
+    width: "35vw",
+  },
+  fullList: {
+    width: "auto",
+  },
+});
+
+export default function Drawer() {
+  const classes = useStyles();
   const [state, setState] = React.useState(false);
 
   const toggleDrawer = (open) => (event) => {
@@ -27,6 +38,7 @@ export default function SwipeableTemporaryDrawer() {
 
   const list = () => (
     <div
+      className={classes.list}
       role="presentation"
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
